@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Londrina+Solid:wght@300;400;900&family=Quattrocento:wght@400;700&family=Roboto+Condensed:wght@300;400;600&family=Satisfy&display=swap");
+
+.mainContainer {
+  background-image: url("../../../images/iteration-1-images/home-banner.png");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 106px;
+  max-width: 890px;
+}
+
+.header {
+  font-family: Roboto Condensed;
+  font-weight: 300;
+  font-size: 86px;
+  line-height: 92px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-align: center;
+  max-width: 690px;
+  margin: 40px 0;
+}
+
+.orderButton {
+  background-color: #fdc913;
+  text-decoration: none;
+  color: #292929;
+  font-family: Barlow;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: center;
+  width: 193px;
+  border-radius: 50px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 80px;
+  }
+  .header {
+    margin: 20px 10px;
+  }
+}
