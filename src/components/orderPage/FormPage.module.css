@@ -63,3 +63,192 @@
 .doughOptions .doughOptionsTitle {
   margin-bottom: 12px;
 }
+
+.extraItemsTitle {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #292929;
+  margin-top: 24px;
+}
+.extraItemsSubtitle {
+  font-family: Barlow;
+  font-weight: 500;
+  font-size: 16px;
+  vertical-align: middle;
+  color: #5f5f5f;
+  margin-bottom: 40px;
+  margin-top: 16px;
+}
+
+.items {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28.8px;
+  color: #5f5f5f;
+}
+
+.orderNote {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.noteInput {
+  height: 56px;
+}
+
+.nameInput {
+  height: 56px;
+}
+.noteInput::placeholder {
+  font-family: Barlow;
+  font-weight: 500;
+  font-size: 16px;
+  color: #5f5f5f;
+}
+
+.nameInput::placeholder {
+  font-family: Barlow;
+  font-weight: 500;
+  font-size: 16px;
+  color: #5f5f5f;
+}
+
+.sizeCircle {
+  display: none;
+}
+
+.sizeText {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .extraItem {
+    display: flex;
+    padding-left: 0 !important;
+  }
+
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+  }
+
+  .checkboxInput {
+    display: none;
+  }
+
+  .customCheckbox {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    background-color: #faf7f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .customCheckbox::after {
+    content: "✔";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28.8px;
+    color: #000000;
+    opacity: 0;
+  }
+
+  .checkboxInput:checked + .customCheckbox {
+    background-color: #ffc107;
+  }
+
+  .checkboxInput:checked + .customCheckbox::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .sizeOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 215px;
+  }
+
+  .sizeOptions .sizeOptionsTitle {
+    margin-bottom: 0px !important;
+    height: 25px;
+  }
+  .sizeOptionsName label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .sizeOptionsNameContainer {
+    display: flex;
+  }
+
+  .sizeOptionsName {
+    padding-left: 0 !important;
+    margin-right: 17px;
+  }
+
+  .sizeOptionsName input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sizeText {
+    display: none;
+  }
+
+  .sizeCircle {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: #faf7f2;
+    align-items: center;
+    justify-content: center;
+    font-family: Barlow;
+    font-weight: 500;
+    font-size: 16px;
+    color: #5f5f5f;
+    line-height: 56px;
+  }
+
+  .sizeOptionsName input[type="radio"]:checked + .sizeCircle {
+    background-color: #f5deb3;
+  }
+
+  .doughOptions {
+    width: 258px;
+    margin-left: 56px;
+  }
+  .doughOptions .doughOptionsInput {
+    height: 56px;
+    background-color: #faf7f2;
+    font-family: Barlow;
+    font-weight: 500;
+    font-size: 14px;
+    color: #5f5f5f;
+  }
+
+  .doughOptionsTitle {
+    margin-bottom: 20px !important;
+  }
+  .noteInput {
+    background-color: #faf7f2 !important;
+  }
+  .nameInput {
+    background-color: #faf7f2 !important;
+  }
+  .extraItemsSubtitle {
+    margin-bottom: 17px;
+  }
+}

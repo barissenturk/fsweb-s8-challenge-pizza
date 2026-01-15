@@ -20,12 +20,12 @@ const extrasList = [
   "Sosis",
   "Mısır",
   "Sucuk",
-  "Kanada Jambonu",
   "Ananas",
   "Tavuk Izgara",
   "Jalepeno",
   "Kabak",
   "Soğan",
+  "Kanada Jambonu",
   "Sarımsak",
 ];
 
@@ -87,9 +87,9 @@ export default function FormPage() {
         console.error("POST ERROR ", err);
       });
   }
-  // useEffect(() => {
-  //   console.log(orderData);
-  // }, [orderData]);
+  useEffect(() => {
+    console.log(isFormValid);
+  }, [isFormValid]);
   return (
     <div className={styles.mainFormContainer}>
       <div className={styles.formText}>
@@ -102,7 +102,7 @@ export default function FormPage() {
       </div>
       <Form className={styles.formContainer}>
         <FormGroup className={styles.optionsContainer}>
-          <FormGroup tag="fieldset" className={styles.sizeOptions}>
+          {/* <FormGroup tag="fieldset" className={styles.sizeOptions}>
             <Label className={styles.sizeOptionsTitle}>
               Boyut Seç <span style={{ color: "red" }}>*</span>
             </Label>
@@ -136,6 +136,56 @@ export default function FormPage() {
               />
               <Label check>Büyük</Label>
             </FormGroup>
+          </FormGroup> */}
+          <FormGroup tag="fieldset" className={styles.sizeOptions}>
+            <FormGroup className={styles.sizeOptionsTitle}>
+              <Label>
+                Boyut Seç <span style={{ color: "red" }}>*</span>
+              </Label>
+            </FormGroup>
+            <FormGroup className={styles.sizeOptionsNameContainer}>
+              <FormGroup check className={styles.sizeOptionsName}>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="boyut"
+                    value="küçük"
+                    checked={orderData.boyut === "küçük"}
+                    onChange={handleChange}
+                  />
+                  <span className={styles.sizeCircle}>S</span>
+                  <span className={styles.sizeText}>Küçük</span>
+                </Label>
+              </FormGroup>
+
+              <FormGroup check className={styles.sizeOptionsName}>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="boyut"
+                    value="orta"
+                    checked={orderData.boyut === "orta"}
+                    onChange={handleChange}
+                  />
+                  <span className={styles.sizeCircle}>M</span>
+                  <span className={styles.sizeText}>Orta</span>
+                </Label>
+              </FormGroup>
+
+              <FormGroup check className={styles.sizeOptionsName}>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="boyut"
+                    value="büyük"
+                    checked={orderData.boyut === "büyük"}
+                    onChange={handleChange}
+                  />
+                  <span className={styles.sizeCircle}>L</span>
+                  <span className={styles.sizeText}>Büyük</span>
+                </Label>
+              </FormGroup>
+            </FormGroup>
           </FormGroup>
           <FormGroup className={styles.doughOptions}>
             <Label for="dough" className={styles.doughOptionsTitle}>
@@ -147,8 +197,9 @@ export default function FormPage() {
               type="select"
               value={orderData.hamur}
               onChange={handleChange}
+              className={styles.doughOptionsInput}
             >
-              <option value="">Hamur Kalınlığı</option>
+              <option value="">--Hamur Kalınlığı Seç --</option>
               <option value="ince">İnce</option>
               <option value="orta">Orta</option>
               <option value="kalin">Kalın</option>
@@ -156,33 +207,44 @@ export default function FormPage() {
           </FormGroup>
         </FormGroup>
         <FormGroup>
-          <Label>Ek Malzemeler</Label>
-          <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
-          {orderData.malzemeler.length > 0 &&
-            orderData.malzemeler.length < 4 && (
-              <FormFeedback className="d-block mb-2">
-                En az 4 malzeme seçmelisiniz
-              </FormFeedback>
-            )}
-          <Row>
-            {extrasList.map((item, index) => (
-              <Col md="4" key={index}>
-                <FormGroup check className="mb-2">
-                  <Input
-                    type="checkbox"
-                    value={item}
-                    checked={orderData.malzemeler.includes(item)}
-                    onChange={handleExtraItems}
-                  />
-                  <Label check>{item}</Label>
+          <Label className={styles.extraItemsTitle}>Ek Malzemeler</Label>
+          <div className={styles.extraItemsSubtitle}>
+            En fazla 10 malzeme seçebilirsiniz. 5₺
+            {orderData.malzemeler.length > 0 &&
+              orderData.malzemeler.length < 4 && (
+                <FormFeedback className="d-block mt2 fs-6">
+                  En az 4 malzeme seçmelisiniz
+                </FormFeedback>
+              )}
+          </div>
+
+          <Row className={`g-2 ${styles.items}`}>
+            {extrasList.map((item) => (
+              <Col key={item} xs="6" sm="6" md="4" className="p-0">
+                <FormGroup check className={styles.extraItem}>
+                  <Label className={styles.checkboxLabel}>
+                    <Input
+                      type="checkbox"
+                      value={item}
+                      checked={orderData.malzemeler.includes(item)}
+                      onChange={handleExtraItems}
+                      className={styles.checkboxInput}
+                    />
+                    <span className={styles.customCheckbox} />
+                    <span className={styles.checkboxText}>{item}</span>
+                  </Label>
                 </FormGroup>
               </Col>
             ))}
           </Row>
         </FormGroup>
         <FormGroup>
-          <Label for="isim">isim</Label>
+          <Label className={styles.orderNote} for="isim">
+            İsim
+          </Label>
           <Input
+            className={styles.nameInput}
+            placeholder="İsminizi giriniz"
             id="isim"
             name="isim"
             value={orderData.isim}
@@ -192,11 +254,14 @@ export default function FormPage() {
           <FormFeedback>İsim en az 3 karakter olmalı</FormFeedback>
         </FormGroup>
         <FormGroup>
-          <Label for="özel">Sipariş Notu</Label>
+          <Label className={styles.orderNote} for="özel">
+            Sipariş Notu
+          </Label>
           <Input
+            className={styles.noteInput}
+            placeholder="Siparişine eklemek istediğin bir not var mı?"
             id="özel"
             name="özel"
-            type="textarea"
             value={orderData.özel}
             onChange={handleChange}
           />

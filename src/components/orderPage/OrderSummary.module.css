@@ -48,9 +48,9 @@
 .summaryCard {
   display: flex;
   flex-direction: column;
+  width: 350px;
 }
 .summary {
-  width: 350px;
   height: 197px;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
@@ -108,8 +108,6 @@
   cursor: not-allowed;
 }
 
-/* ================= MOBILE ================= */
-
 @media (max-width: 768px) {
   .orderWrapper {
     flex-direction: column;
@@ -131,5 +129,11 @@
   .orderButton {
     height: 48px;
     font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .summary {
+    background-color: #faf7f2;
   }
 }

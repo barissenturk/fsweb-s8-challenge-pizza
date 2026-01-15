@@ -1,7 +1,8 @@
 import styles from "./OrderSummary.module.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function OrderSummary({ isFormValid, handleSubmit }) {
+  const history = useHistory();
   return (
     <div className={styles.orderWrapper}>
       <div className={styles.quantityBox}>
@@ -26,14 +27,16 @@ export default function OrderSummary({ isFormValid, handleSubmit }) {
             </div>
           </div>
         </div>
-        <Link
+        <button
           className={styles.orderButton}
           disabled={!isFormValid}
-          onClick={handleSubmit}
-          to="/orderDetail"
+          onClick={() => {
+            handleSubmit();
+            history.push("/orderDetail");
+          }}
         >
           SİPARİŞ VER
-        </Link>
+        </button>
       </div>
     </div>
   );
