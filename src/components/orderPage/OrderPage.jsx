@@ -1,3 +1,4 @@
+import FormPage from "./FormPage";
 import styles from "./OrderPage.module.css";
 import { NavLink } from "react-router-dom";
 function OrderPage() {
@@ -41,6 +42,7 @@ function OrderPage() {
               </div>
             </div>
           </div>
+          <FormPage />
         </div>
       </div>
     </div>

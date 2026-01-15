@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Londrina+Solid:wght@300;400;900&family=Quattrocento:wght@400;700&family=Roboto+Condensed:wght@300;400;600&family=Satisfy&display=swap");
+
+.mainFormContainer {
+  margin-top: 18px;
+}
+
+.formText {
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #5f5f5f;
+  font-style: normal;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+.optionsContainer {
+  display: flex;
+  margin-top: 40px;
+}
+
+.sizeOptions {
+  width: 147px;
+}
+
+.doughOptions {
+  width: 159px;
+  margin-left: 120px;
+}
+
+.sizeOptionsTitle {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.sizeOptions .sizeOptionsTitle {
+  margin-bottom: 20px;
+}
+
+.sizeOptionsName {
+  font-family: Barlow;
+  font-weight: 500;
+  font-size: 16px;
+  color: #5f5f5f;
+  height: 30px;
+}
+
+.sizeOptions .sizeOptionsName {
+  margin-bottom: 10px;
+}
+.doughOptionsTitle {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.doughOptions .doughOptionsTitle {
+  margin-bottom: 12px;
+}

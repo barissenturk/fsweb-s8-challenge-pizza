@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Londrina+Solid:wght@300;400;900&family=Quattrocento:wght@400;700&family=Roboto+Condensed:wght@300;400;600&family=Satisfy&display=swap");
+
 .headerContainer {
   display: flex;
   flex-direction: column;
@@ -42,11 +44,11 @@
   justify-content: center;
 }
 .OrderContainer {
-  min-width: 532px;
+  max-width: 532px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 31px;
+  margin: 31px 0 170px 0;
 }
 
 .orderInfo {
@@ -96,7 +98,7 @@
     min-width: 420px;
   }
   .OrderContainer {
-    min-width: 420px;
+    max-width: 420px;
   }
   .pizzaName {
     font-size: 27px;
