@@ -125,8 +125,8 @@ export default function FormPage({ pizzaPrice }) {
                   <Input
                     type="radio"
                     name="boyut"
-                    value="küçük"
-                    checked={orderData.boyut === "küçük"}
+                    value="S"
+                    checked={orderData.boyut === "S"}
                     onChange={handleChange}
                   />
                   <span className={styles.sizeCircle}>S</span>
@@ -139,8 +139,8 @@ export default function FormPage({ pizzaPrice }) {
                   <Input
                     type="radio"
                     name="boyut"
-                    value="orta"
-                    checked={orderData.boyut === "orta"}
+                    value="M"
+                    checked={orderData.boyut === "M"}
                     onChange={handleChange}
                   />
                   <span className={styles.sizeCircle}>M</span>
@@ -153,8 +153,8 @@ export default function FormPage({ pizzaPrice }) {
                   <Input
                     type="radio"
                     name="boyut"
-                    value="büyük"
-                    checked={orderData.boyut === "büyük"}
+                    value="L"
+                    checked={orderData.boyut === "L"}
                     onChange={handleChange}
                   />
                   <span className={styles.sizeCircle}>L</span>
@@ -176,9 +176,9 @@ export default function FormPage({ pizzaPrice }) {
               className={styles.doughOptionsInput}
             >
               <option value="">--Hamur Kalınlığı Seç --</option>
-              <option value="ince">İnce</option>
-              <option value="normal">normal</option>
-              <option value="kalin">Kalın</option>
+              <option value="İnce">İnce</option>
+              <option value="Normal">Normal</option>
+              <option value="Kalın">Kalın</option>
             </Input>
           </FormGroup>
         </FormGroup>

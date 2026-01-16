@@ -50,7 +50,11 @@ export default function OrderSummary({
           disabled={!isFormValid}
           onClick={() => {
             handleSubmit();
-            history.push("/orderDetail", { orderData });
+            history.push("/orderDetail", {
+              orderData,
+              malzemePrice,
+              totalPrice,
+            });
           }}
         >
           SİPARİŞ VER

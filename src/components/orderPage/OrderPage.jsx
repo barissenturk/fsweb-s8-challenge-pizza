@@ -64,7 +64,9 @@ function OrderPage() {
       <div className={styles.formContainer}>
         <FormPage pizzaPrice={pizzaPrice} />
       </div>
-      <Footer />
+      <div className={styles.footerContainer}>
+        <Footer />
+      </div>
     </div>
   );
 }
