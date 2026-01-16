@@ -1,14 +1,32 @@
 import styles from "./OrderSummary.module.css";
 import { useHistory } from "react-router-dom";
 
-export default function OrderSummary({ isFormValid, handleSubmit }) {
+export default function OrderSummary({
+  isFormValid,
+  handleSubmit,
+  handleIncrease,
+  orderData,
+  handleDecrease,
+  totalPrice,
+  malzemePrice,
+}) {
   const history = useHistory();
   return (
     <div className={styles.orderWrapper}>
       <div className={styles.quantityBox}>
-        <button className={`${styles.qtyButton} ${styles.left}`}>-</button>
-        <div className={styles.qtyValue}>1</div>
-        <button className={`${styles.qtyButton} ${styles.right}`}>+</button>
+        <button
+          className={`${styles.qtyButton} ${styles.left}`}
+          onClick={handleDecrease}
+        >
+          -
+        </button>
+        <div className={styles.qtyValue}>{orderData.adet}</div>
+        <button
+          className={`${styles.qtyButton} ${styles.right}`}
+          onClick={handleIncrease}
+        >
+          +
+        </button>
       </div>
 
       <div className={styles.summaryCard}>
@@ -18,12 +36,12 @@ export default function OrderSummary({ isFormValid, handleSubmit }) {
 
             <div className={styles.summaryRow}>
               <span>Seçimler</span>
-              <span>25.00₺</span>
+              <span>{malzemePrice}₺</span>
             </div>
 
             <div className={styles.total}>
               <span>Toplam</span>
-              <span>110.50₺</span>
+              <span>{totalPrice.toFixed(2)}₺</span>
             </div>
           </div>
         </div>
@@ -32,7 +50,7 @@ export default function OrderSummary({ isFormValid, handleSubmit }) {
           disabled={!isFormValid}
           onClick={() => {
             handleSubmit();
-            history.push("/orderDetail");
+            history.push("/orderDetail", { orderData });
           }}
         >
           SİPARİŞ VER

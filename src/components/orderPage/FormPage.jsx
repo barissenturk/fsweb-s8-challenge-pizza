@@ -35,11 +35,15 @@ const initialForm = {
   malzemeler: [],
   özel: "",
   hamur: "",
+  adet: 1,
 };
 
-export default function FormPage() {
+export default function FormPage({ pizzaPrice }) {
   const [orderData, setOrderData] = useState(initialForm);
 
+  const malzemePrice = (orderData.malzemeler.length * 5).toFixed(2);
+  const totalPrice =
+    (Number(pizzaPrice.toFixed(2)) + Number(malzemePrice)) * orderData.adet;
   const isFormValid =
     orderData.isim.length >= 3 &&
     orderData.boyut &&
@@ -71,6 +75,21 @@ export default function FormPage() {
     });
   }
 
+  function handleIncrease() {
+    setOrderData((prev) => ({
+      ...prev,
+      adet: prev.adet + 1,
+    }));
+  }
+
+  function handleDecrease() {
+    setOrderData((prev) => {
+      if (orderData.adet <= 1) {
+        return prev;
+      }
+      return { ...prev, adet: prev.adet - 1 };
+    });
+  }
   function handleSubmit() {
     if (!isFormValid) return;
     axios
@@ -88,55 +107,12 @@ export default function FormPage() {
       });
   }
   useEffect(() => {
-    console.log(isFormValid);
-  }, [isFormValid]);
+    console.log(orderData);
+  }, [orderData]);
   return (
     <div className={styles.mainFormContainer}>
-      <div className={styles.formText}>
-        Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
-        pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer
-        malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir
-        fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş
-        mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir
-        yemektir. . Küçük bir pizzaya bazen pizzetta denir.
-      </div>
       <Form className={styles.formContainer}>
         <FormGroup className={styles.optionsContainer}>
-          {/* <FormGroup tag="fieldset" className={styles.sizeOptions}>
-            <Label className={styles.sizeOptionsTitle}>
-              Boyut Seç <span style={{ color: "red" }}>*</span>
-            </Label>
-            <FormGroup check className={styles.sizeOptionsName}>
-              <Input
-                name="boyut"
-                value="küçük"
-                checked={orderData.boyut === "küçük"}
-                onChange={handleChange}
-                type="radio"
-              />
-              <Label check>Küçük</Label>
-            </FormGroup>
-            <FormGroup check className={styles.sizeOptionsName}>
-              <Input
-                name="boyut"
-                value="orta"
-                checked={orderData.boyut === "orta"}
-                onChange={handleChange}
-                type="radio"
-              />
-              <Label check>Orta</Label>
-            </FormGroup>
-            <FormGroup check className={styles.sizeOptionsName}>
-              <Input
-                name="boyut"
-                value="büyük"
-                checked={orderData.boyut === "büyük"}
-                onChange={handleChange}
-                type="radio"
-              />
-              <Label check>Büyük</Label>
-            </FormGroup>
-          </FormGroup> */}
           <FormGroup tag="fieldset" className={styles.sizeOptions}>
             <FormGroup className={styles.sizeOptionsTitle}>
               <Label>
@@ -201,7 +177,7 @@ export default function FormPage() {
             >
               <option value="">--Hamur Kalınlığı Seç --</option>
               <option value="ince">İnce</option>
-              <option value="orta">Orta</option>
+              <option value="normal">normal</option>
               <option value="kalin">Kalın</option>
             </Input>
           </FormGroup>
@@ -267,7 +243,15 @@ export default function FormPage() {
           />
         </FormGroup>
       </Form>
-      <OrderSummary isFormValid={isFormValid} handleSubmit={handleSubmit} />
+      <OrderSummary
+        isFormValid={isFormValid}
+        handleSubmit={handleSubmit}
+        handleIncrease={handleIncrease}
+        handleDecrease={handleDecrease}
+        orderData={orderData}
+        totalPrice={totalPrice}
+        malzemePrice={malzemePrice}
+      />
     </div>
   );
 }
