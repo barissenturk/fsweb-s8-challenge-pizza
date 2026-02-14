@@ -1,32 +1,43 @@
 import "./HomePageMain.css";
 
+import navIcon from "../../../images/iteration-2-images/icons/1.svg";
+import navIcon2 from "../../../images/iteration-2-images/icons/2.svg";
+import navIcon3 from "../../../images/iteration-2-images/icons/3.svg";
+import navIcon4 from "../../../images/iteration-2-images/icons/4.svg";
+import navIcon5 from "../../../images/iteration-2-images/icons/5.svg";
+import navIcon6 from "../../../images/iteration-2-images/icons/6.svg";
+
+import foodCard from "../../../images/iteration-2-images/pictures/food-1.png";
+import foodCard2 from "../../../images/iteration-2-images/pictures/food-2.png";
+import foodCard3 from "../../../images/iteration-2-images/pictures/food-3.png";
+
 export default function HomePageMain() {
   return (
     <div className="bodyContainer">
       <section className="navigation">
         <nav>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/1.svg" />
+            <img src={navIcon} />
             YENİ! Kore{" "}
           </a>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/2.svg" />
+            <img src={navIcon2} />
             Pizza
           </a>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/3.svg" />
+            <img src={navIcon3} />
             Burger
           </a>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/4.svg" />
+            <img src={navIcon4} />
             Kızartmalar
           </a>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/5.svg" />
+            <img src={navIcon5} />
             Fast food
           </a>
           <a className="nav-items">
-            <img src="../../../images/iteration-2-images/icons/6.svg" />
+            <img src={navIcon6} />
             Gazlı İçecek
           </a>
         </nav>
@@ -64,34 +75,34 @@ export default function HomePageMain() {
 
         <nav className="nav-menu">
           <a className="menu-items">
-            <img src="../../../images/iteration-2-images/icons/1.svg" />
+            <img src={navIcon} />
             Ramen
           </a>
           <a className="active">
-            <img src="../../../images/iteration-2-images/icons/2.svg" />
+            <img src={navIcon2} />
             Pizza
           </a>
           <a className="menu-items">
-            <img src="../../../images/iteration-2-images/icons/3.svg" />
+            <img src={navIcon3} />
             Burger
           </a>
           <a className="menu-items">
-            <img src="../../../images/iteration-2-images/icons/4.svg" />
+            <img src={navIcon4} />
             French fries
           </a>
           <a className="menu-items">
-            <img src="../../../images/iteration-2-images/icons/5.svg" />
+            <img src={navIcon5} />
             Fast food
           </a>
           <a className="menu-items">
-            <img src="../../../images/iteration-2-images/icons/6.svg" />
+            <img src={navIcon6} />
             Soft drinks
           </a>
         </nav>
         <div className="food-container">
           <div className="food-items">
             <div className="food-items-card">
-              <img src="../../../images/iteration-2-images/pictures/food-1.png" />
+              <img src={foodCard} />
               <div className="food-information">
                 <h3 className="food-name">Terminal Pizza</h3>
                 <div className="food-subinfo">
@@ -106,7 +117,7 @@ export default function HomePageMain() {
           </div>
           <div className="food-items">
             <div className="food-items-card">
-              <img src="../../../images/iteration-2-images/pictures/food-2.png" />
+              <img src={foodCard2} />
               <div className="food-information">
                 <h3 className="food-name">Position Absolute Acı Pizza</h3>
                 <div className="food-subinfo">
@@ -121,7 +132,7 @@ export default function HomePageMain() {
           </div>
           <div className="food-items">
             <div className="food-items-card">
-              <img src="../../../images/iteration-2-images/pictures/food-3.png" />
+              <img src={foodCard3} />
               <div className="food-information">
                 <h3 className="food-name">useEffect Tavuklu Burger</h3>
                 <div className="food-subinfo">

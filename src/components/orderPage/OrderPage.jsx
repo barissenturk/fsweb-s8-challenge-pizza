@@ -2,24 +2,20 @@ import Footer from "../footer/Footer";
 import FormPage from "./FormPage";
 import styles from "./OrderPage.module.css";
 import { NavLink } from "react-router-dom";
+import logo from "../../../images/iteration-1-images/logo.svg";
+import banner from "../../../images/iteration-2-images/pictures/form-banner.png";
 function OrderPage() {
   const pizzaPrice = 85.5;
   return (
     <div>
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <img
-            className={styles.title}
-            src="../../../images/iteration-1-images/logo.svg"
-          />
+          <img className={styles.title} src={logo} />
         </div>
       </div>
       <div className={styles.mainContainer}>
         <div className={styles.menuContainer}>
-          <img
-            className={styles.headerBanner}
-            src="../../../images/iteration-2-images/pictures/form-banner.png"
-          />
+          <img className={styles.headerBanner} src={banner} />
           <nav className={styles.menu}>
             <NavLink
               exact

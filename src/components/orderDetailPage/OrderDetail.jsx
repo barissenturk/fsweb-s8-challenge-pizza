@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import Footer from "../footer/Footer";
 import styles from "./OrderDetail.module.css";
 
+import logo from "../../../images/iteration-1-images/logo.svg";
+
 export default function OrderDetail() {
   const location = useLocation();
   const { orderData, totalPrice, malzemePrice } = location.state || {};
@@ -10,7 +12,7 @@ export default function OrderDetail() {
     <div>
       <div className={styles.mainContainer}>
         <div className={styles.container}>
-          <img src="../../../images/iteration-1-images/logo.svg" />
+          <img src={logo} />
           <div className={styles.promoMessage}> lezzetin yolda</div>
           <div className={styles.orderSuccess}>SİPARİŞ Alındı</div>
           <div className={styles.orderSuccessMobile}>
